@@ -104,7 +104,7 @@
     margin: 18px auto;
   }
   .hero-dir {
-    color: rgba(255,255,255,0.82);
+    color: #FFFFFF;
     font-size: 12px; letter-spacing: 1.5px;
     line-height: 2; text-transform: uppercase;
     font-weight: 400;
@@ -136,7 +136,7 @@
     text-align: center;
   }
   .horario-item:last-child { border-right: none; }
-  .h-dia { color: rgba(255,255,255,0.6); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+  .h-dia { color: #FFFFFF; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
   .h-hora { color: var(--blanco); font-size: 17px; font-weight: 700; margin-top: 4px; }
 
   /* ===== MAIN ===== */
@@ -198,7 +198,7 @@
     font-size: 24px; color: var(--negro); font-weight: 700;
   }
   .seccion-sub {
-    font-size: 12px; color: var(--gris); font-style: italic;
+    font-size: 15px; color: #1A0A00; font-weight: 700;
   }
 
   /* ===== TARJETA PRODUCTO ===== */
@@ -218,16 +218,16 @@
   }
   .producto-nombre {
     font-family: 'Playfair Display', serif;
-    font-size: 15px; color: var(--negro); font-weight: 700; line-height: 1.2;
+    font-size: 16px; color: var(--negro); font-weight: 700; line-height: 1.2;
   }
-  .producto-desc { font-size: 11px; color: var(--gris); margin-top: 3px; font-style: italic; }
+  .producto-desc { font-size: 14px; color: #1A0A00; margin-top: 4px; line-height: 1.4; }
   .producto-footer {
     display: flex; align-items: center;
     justify-content: space-between; margin-top: 10px;
   }
   .producto-precio { font-size: 18px; font-weight: 900; color: var(--rojo); }
   .producto-efectivo {
-    font-size: 10px; color: var(--gris);
+    font-size: 10px; color: #1A0A00;
     margin-top: 2px; font-weight: 600;
   }
   .producto-efectivo span { color: var(--rojo-oscuro); }
@@ -257,7 +257,7 @@
     font-size: 28px; color: var(--blanco); font-weight: 900;
   }
   .locro-desc {
-    font-size: 12px; color: rgba(255,255,255,0.5);
+    font-size: 12px; color: #FFFFFF;
     margin-top: 6px; font-style: italic; line-height: 1.6;
   }
   .locro-footer {
@@ -285,7 +285,7 @@
     display: flex; flex-direction: column; justify-content: space-between;
   }
   .salsa-nombre { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--negro); font-weight: 700; }
-  .salsa-desc { font-size: 11px; color: var(--gris); margin-top: 3px; font-style: italic; }
+  .salsa-desc { font-size: 14px; color: #1A0A00; margin-top: 4px; }
   .salsa-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
   .salsa-precio { font-size: 17px; font-weight: 900; color: var(--rojo); }
 
@@ -392,7 +392,7 @@
   .horario-wrap { margin-top: 14px; }
   .horario-lbl {
     display: block; font-size: 9px; font-weight: 700;
-    color: var(--gris); letter-spacing: 2px;
+    color: #FFFFFF; letter-spacing: 2px;
     text-transform: uppercase; margin-bottom: 8px;
   }
   .horario-select {
@@ -517,7 +517,7 @@
   <div class="seccion">
     <div class="seccion-header">
       <div class="seccion-titulo">Empanadas</div>
-      <div class="seccion-sub">Artesanales al horno · $3.000 c/u</div>
+      <div class="seccion-sub">Artesanales al horno · Docena en efectivo: $30.000</div>
     </div>
     <div id="emp-lista"></div>
   </div>
@@ -750,9 +750,9 @@
     <div class="pagos-titulo">Medio de pago</div>
     <div id="pagos-grid" style="display:flex;flex-direction:column;gap:8px;"></div>
     <div id="alias-aviso" style="display:none;margin-top:12px;padding:16px;background:var(--negro);border-radius:10px;border:1px solid #333;">
-      <div style="font-size:10px;color:#888;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Datos para transferir</div>
+      <div style="font-size:10px;color:#1A0A00;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;">Datos para transferir</div>
       <div style="color:white;font-size:18px;font-weight:900;letter-spacing:1px;">chango.bancogalicia</div>
-      <div style="color:#aaa;font-size:13px;margin-top:6px;">A nombre de: <strong style="color:white;">Rodrigo Nieto</strong></div>
+      <div style="color:#1A0A00;font-size:13px;margin-top:6px;">A nombre de: <strong style="color:#1A0A00;">Rodrigo Nieto</strong></div>
       <div style="margin-top:12px;padding:10px 12px;background:#1a1a1a;border-left:3px solid #A0221E;border-radius:6px;font-size:13px;color:#ccc;line-height:1.7;">
         📲 Envianos el comprobante de pago por WhatsApp y te confirmamos el pedido ✅
       </div>
@@ -797,13 +797,13 @@
     <div style="font-size:28px;margin-bottom:8px;">💵</div>
     <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:#1A0A00;margin-bottom:16px;">Pago en efectivo</div>
     <div style="background:#fff5f5;border-radius:10px;padding:14px;margin-bottom:20px;">
-      <div style="font-size:12px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Tu total a pagar</div>
+      <div style="font-size:12px;font-weight:700;color:#1A0A00;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Tu total a pagar</div>
       <div id="efectivo-total-display" style="font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#A0221E;">$0</div>
       <div style="font-size:11px;color:#A0221E;margin-top:4px;">⚡ Precio con descuento efectivo</div>
     </div>
     <label style="display:block;font-size:13px;font-weight:700;color:#1A0A00;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;text-align:left;">¿Con cuánto vas a pagar?</label>
     <input type="tel" id="efectivo-conCuanto" placeholder="Ej: 5000" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'')" style="width:100%;padding:14px 15px;border:2px solid #A0221E;border-radius:8px;font-family:Lato,sans-serif;font-size:18px;font-weight:700;color:#1A0A00;outline:none;text-align:center;margin-bottom:6px;">
-    <div style="font-size:11px;color:#888;margin-bottom:20px;">Solo el número, sin $ ni puntos. Así preparamos el vuelto 🪙</div>
+    <div style="font-size:11px;color:#1A0A00;margin-bottom:20px;">Solo el número, sin $ ni puntos. Así preparamos el vuelto 🪙</div>
     <button onclick="confirmarEfectivo()" style="width:100%;padding:16px;background:#A0221E;color:white;border:none;border-radius:10px;font-family:Lato,sans-serif;font-weight:700;font-size:16px;cursor:pointer;text-transform:uppercase;letter-spacing:1px;">Confirmar →</button>
     <button onclick="cerrarPopupEfectivo()" style="width:100%;padding:12px;background:transparent;color:#888;border:none;font-family:Lato,sans-serif;font-size:14px;cursor:pointer;margin-top:8px;">Cancelar</button>
   </div>
@@ -870,7 +870,6 @@ function init() {
         <div class="producto-footer">
           <div>
             <div class="producto-precio">$3.000</div>
-            <div class="producto-efectivo">Efectivo: <span>docena $30.000</span></div>
           </div>
           <div class="contador">
             <button class="cnt-btn" onclick="cambiar('${e.id}',-1)">−</button>
@@ -1314,7 +1313,9 @@ function enviar() {
   const g_entre=tipo==='envio'?(document.getElementById('dir-entre').value||'').trim():'';
   const g_barrio=tipo==='envio'?(document.getElementById('dir-barrio').value||'').trim():'';
   const pagoNom={'efectivo':'Efectivo','transferencia':'Transferencia','mercadopago':'MercadoPago / QR','tarjeta':'Tarjeta'}[pagoElegido]||pagoElegido;
-  const descNote=pagoElegido==='efectivo'?' (descuento efectivo)':'';
+  let totalEmpMsg=0; EMPANADAS.forEach(e=>{totalEmpMsg+=(cant[e.id]||0);});
+  const tieneDescuento=pagoElegido==='efectivo'&&totalEmpMsg>=12;
+  const descNote=tieneDescuento?' (descuento efectivo)':'';
   const conCuanto=pagoElegido==='efectivo'?(document.getElementById('efectivo-conCuanto').value||'').trim():'';
   const conCuantoFormateado=conCuanto?'$'+parseInt(conCuanto).toLocaleString('es-AR'):'';
 
@@ -1327,14 +1328,14 @@ function enviar() {
   msg+='🕐 *'+horarioVal+'*'+NL;
   if(tipo==='envio'){
     msg+='📍 *Envío a domicilio*'+NL;
-    msg+='   Calle: '+g_calle+' '+g_num+NL;
+    msg+='   📌 Calle: '+g_calle+NL;
+    msg+='   Número: '+g_num+NL;
     msg+='   Entre: '+g_entre+NL;
     if(ref) msg+='   Ref: '+ref+NL;
   } else {
     msg+='📍 Retiro en el local'+NL;
   }
   msg+='💳 '+pagoNom+NL;
-  if(conCuantoFormateado) msg+='💵 Paga con: *'+conCuantoFormateado+'*'+NL;
   msg+='———————————————'+NL;
   msg+='*PEDIDO:*'+NL;
   msg+=items.join(NL)+NL;
@@ -1343,6 +1344,7 @@ function enviar() {
   }
   msg+='———————————————'+NL;
   msg+='💰 *Total: $'+total.toLocaleString('es-AR')+'*'+descNote;
+  if(conCuantoFormateado) msg+=NL+'💵 Paga con: *'+conCuantoFormateado+'*';
   if(ref && tipo!=='envio') msg+=NL+NL+'📝 '+ref;
   if(pagoElegido==='transferencia') msg+=NL+'———————————————'+NL+'💳 *TRANSFERENCIA:*'+NL+'Alias: *chango.bancogalicia*'+NL+'A nombre de: *Rodrigo Nieto*'+NL+'📲 Enviá el comprobante por WhatsApp para confirmar ✅';
 
