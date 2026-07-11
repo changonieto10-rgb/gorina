@@ -376,7 +376,7 @@
     flex: 1; padding: 15px 14px;
     background: #25D366; color: var(--blanco);
     border: none; border-radius: 10px;
-    font-family: 'Lato', sans-serif; font-weight: 700; font-size: 14px;
+    font-family: 'Lato', sans-serif; font-weight: 700; font-size: 16px;
     cursor: pointer; display: flex; align-items: center;
     justify-content: center; gap: 8px;
     transition: background 0.2s; text-transform: uppercase; letter-spacing: 1px;
@@ -474,29 +474,6 @@
   }
 
   /* Popup fuera de horario (automático) */
-  #popup-fuera-horario {
-    display:none; position:fixed; inset:0; z-index:9998;
-    background:rgba(10,10,10,0.75);
-    align-items:center; justify-content:center;
-    padding:20px;
-  }
-  #popup-fuera-horario.activo { display:flex; }
-  .fh-card {
-    background:var(--blanco); border-radius:16px;
-    max-width:340px; width:100%; padding:32px 26px 26px;
-    text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.4);
-  }
-  .fh-icon { font-size:44px; margin-bottom:14px; }
-  .fh-titulo { font-family:'Playfair Display',serif; font-size:22px; color:var(--rojo); margin-bottom:10px; font-weight:700; }
-  .fh-texto { font-size:14.5px; color:var(--negro); opacity:0.75; line-height:1.6; margin-bottom:22px; }
-  .fh-btn {
-    display:inline-block; width:100%; padding:14px;
-    background:var(--rojo); color:var(--blanco);
-    border:none; border-radius:10px; font-family:'Lato',sans-serif;
-    font-size:15px; font-weight:700; letter-spacing:0.3px;
-    cursor:pointer; transition:background 0.2s;
-  }
-  .fh-btn:active { background:var(--rojo-oscuro); }
 </style>
 </head>
 <body>
@@ -504,15 +481,6 @@
   <div class="cerrado-icon">🔴</div>
   <div class="cerrado-titulo">Estamos cerrados</div>
   <div class="cerrado-texto">Por el momento no estamos tomando pedidos. ¡Volvemos pronto!</div>
-</div>
-
-<div id="popup-fuera-horario">
-  <div class="fh-card">
-    <div class="fh-icon">🕐</div>
-    <div class="fh-titulo">Por hoy cerramos</div>
-    <div class="fh-texto">Pero podés hacer tu pedido igual, para otro día.</div>
-    <button type="button" class="fh-btn" onclick="cerrarPopupFueraHorario()">Continuar</button>
-  </div>
 </div>
 
 
@@ -554,8 +522,8 @@
         <div class="h-hora">18:30 — 22:00</div>
       </div>
     </div>
-    <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.2);font-size:13px;color:#FFFFFF;text-align:center;line-height:1.5;">
-      📅 <strong>25 de mayo y 9 de julio:</strong> abrimos al mediodía · 11:00 — 14:30
+    <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.2);font-size:16px;font-weight:700;color:#FFFFFF;text-align:center;line-height:1.5;">
+      🛵 <strong>Repartimos de 19:00 a 22:00</strong>
     </div>
   </div>
 </div>
@@ -675,7 +643,7 @@
         </div>
         <select id="horario-select" style="display:none;width:100%;padding:13px 15px;border:1.5px solid var(--rojo);border-radius:8px;font-family:Lato,sans-serif;font-size:16px;background:var(--blanco);color:var(--negro);outline:none;font-weight:600;appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;"></select>
         <input type="hidden" id="horario-texto" value="">
-        <div id="nota-tentativo" style="display:none;font-size:12px;color:#83221C;margin-top:6px;font-weight:600;">⏱ Horario tentativo · te avisamos cuando sale</div>
+        <div id="nota-tentativo" style="display:none;font-size:14px;color:#83221C;margin-top:8px;font-weight:700;">⏱ Horario tentativo · te avisamos cuando sale</div>
       </div>
     </div>
 
@@ -760,7 +728,7 @@
     <div style="background:#fff5f5;border-radius:10px;padding:14px;margin-bottom:20px;">
       <div style="font-size:12px;font-weight:700;color:#1A0A00;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Tu total a pagar</div>
       <div id="efectivo-total-display" style="font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#A0221E;">$0</div>
-      <div style="font-size:11px;color:#A0221E;margin-top:4px;">⚡ Precio con descuento efectivo</div>
+      <div id="nota-descuento-efectivo" style="display:none;font-size:11px;color:#A0221E;margin-top:4px;">⚡ Precio con descuento por docena en efectivo</div>
     </div>
     <label style="display:block;font-size:13px;font-weight:700;color:#1A0A00;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;text-align:left;">¿Con cuánto vas a pagar?</label>
     <input type="tel" id="efectivo-conCuanto" placeholder="Ej: 5000" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'')" style="width:100%;padding:14px 15px;border:2px solid #A0221E;border-radius:8px;font-family:Lato,sans-serif;font-size:18px;font-weight:700;color:#1A0A00;outline:none;text-align:center;margin-bottom:6px;">
@@ -771,7 +739,7 @@
 </div>
 
 <div class="barra">
-  <div id="aviso-enviar-whatsapp" style="display:none;text-align:center;font-size:13px;font-weight:700;color:#e8e8e8;padding-bottom:8px;">👉 Se abre WhatsApp — ahí tocá <span style="color:#25D366;">Enviar</span> para confirmar</div>
+  <div id="aviso-enviar-whatsapp" style="display:none;text-align:center;font-size:14px;font-weight:700;color:#e8e8e8;padding-bottom:8px;">👉 Se abre WhatsApp — ahí tocá <span style="color:#25D366;">Enviar</span> para confirmar</div>
   <div class="barra-inner">
     <div class="total-wrap">
       <div class="total-label">Total</div>
@@ -901,7 +869,6 @@ function init() {
         <div>
           <div class="producto-nombre">${p.nombre}</div>
           <div class="producto-desc">${p.desc}</div>
-          ${p.id==='locro' ? `<div class="producto-efectivo">Efectivo: <span id="precio-efectivo-locro">$${(precioBase('locro')-5000).toLocaleString('es-AR')}</span></div>` : ''}
         </div>
         <div class="producto-footer">
           <div>
@@ -1021,7 +988,6 @@ function actualizarPreciosUI() {
   EMPANADAS.forEach(function(e) { var el=document.getElementById('precio-ui-'+e.id); if(el) el.textContent='$'+precioBase(e.id).toLocaleString('es-AR'); });
   EXTRA_EMPANADAS.forEach(function(e) { var el=document.getElementById('precio-ui-'+e.id); if(el) el.textContent='$'+precioBase(e.id).toLocaleString('es-AR'); });
   PLATOS_REGIONALES.forEach(function(p) { var el=document.getElementById('precio-ui-'+p.id); if(el) el.textContent='$'+precioBase(p.id).toLocaleString('es-AR'); });
-  var elEfect = document.getElementById('precio-efectivo-locro'); if(elEfect) elEfect.textContent = '$'+(precioBase('locro')-5000).toLocaleString('es-AR');
   POSTRES.forEach(function(p) { var el=document.getElementById('precio-ui-'+p.id); if(el) el.textContent='$'+precioBase(p.id).toLocaleString('es-AR'); });
   BEBIDAS.forEach(function(b) { var el=document.getElementById('precio-ui-'+b.id); if(el) el.textContent='$'+precioBase(b.id).toLocaleString('es-AR'); });
   VINOS.forEach(function(v) { var el=document.getElementById('precio-ui-'+v.id); if(el) el.textContent='$'+precioBase(v.id).toLocaleString('es-AR'); });
@@ -1043,10 +1009,15 @@ function calcTotal() {
     t += c * precioBase(id);
   }
   if(pagoElegido==='efectivo') {
-    t -= (cant['locro']||0) * 5000;
     let totalEmp=0;
     EMPANADAS.forEach(e=>{ totalEmp+=(cant[e.id]||0); });
     t -= Math.floor(totalEmp/12) * 6000;
+  }
+  var notaDesc = document.getElementById('nota-descuento-efectivo');
+  if(notaDesc) {
+    let totalEmpNota=0;
+    EMPANADAS.forEach(e=>{ totalEmpNota+=(cant[e.id]||0); });
+    notaDesc.style.display = (pagoElegido==='efectivo' && totalEmpNota>=12) ? 'block' : 'none';
   }
   // Actualizar resumen de envío
   const resumen=document.getElementById('resumen-envio');
@@ -1096,34 +1067,6 @@ function esFechaPatria(valor) {
 function horaActualAR() {
   return new Date(new Date().toLocaleString('en-US', {timeZone:'America/Argentina/Buenos_Aires'}));
 }
-
-// ===== POPUP AUTOMÁTICO FUERA DE HORARIO (GORINA) =====
-function debeMostrarPopupCerrado() {
-  const ahoraAR = horaActualAR();
-  const totalMin = ahoraAR.getHours() * 60 + ahoraAR.getMinutes();
-  const esDomingo = ahoraAR.getDay() === 0;
-  const cierre = esDomingo ? (22*60) : (22*60+30);
-  return totalMin > cierre;
-}
-
-function cerrarPopupFueraHorario() {
-  const p = document.getElementById('popup-fuera-horario');
-  if(p) p.classList.remove('activo');
-  try { sessionStorage.setItem('vizc_gorina_fh_dismiss', 'si'); } catch(e) {}
-}
-
-function chequearPopupFueraHorario() {
-  const p = document.getElementById('popup-fuera-horario');
-  if(!p) return;
-  let yaDescartado = false;
-  try { yaDescartado = sessionStorage.getItem('vizc_gorina_fh_dismiss') === 'si'; } catch(e) {}
-  if(debeMostrarPopupCerrado() && !yaDescartado) {
-    p.classList.add('activo');
-  } else {
-    p.classList.remove('activo');
-  }
-}
-document.addEventListener('DOMContentLoaded', chequearPopupFueraHorario);
 
 function actualizarBtnEnvio() {
   const diaEl = document.getElementById('pedido-dia');
@@ -1404,8 +1347,7 @@ function enviar() {
     let te=0; EMPANADAS.forEach(e=>{te+=(cant[e.id]||0);});
     total-=Math.floor(te/12)*6000;
   }
-  const precioLocro=precioBase('locro')-(pagoElegido==='efectivo'?5000:0);
-  if(cant.locro>0){items.push(`• ${cant.locro} locro/s`);total+=cant.locro*precioLocro;ok=true;}
+  if(cant.locro>0){items.push(`• ${cant.locro} locro/s`);total+=cant.locro*precioBase('locro');ok=true;}
   if(cant.past_batata>0){items.push(`• ${cant.past_batata} pastelito/s de batata`);total+=cant.past_batata*precioBase('past_batata');ok=true;}
   if(cant.past_membrillo>0){items.push(`• ${cant.past_membrillo} pastelito/s de membrillo`);total+=cant.past_membrillo*precioBase('past_membrillo');ok=true;}
   if(cant.yasgua>0){items.push(`• ${cant.yasgua} Yasgua`);total+=cant.yasgua*precioBase('yasgua');ok=true;}
@@ -1458,7 +1400,7 @@ function enviar() {
   msg+='📞 '+telefono+NL;
   msg+='📅 *'+diaTexto+'*'+NL;
   msg+='🕐 *'+horarioVal+'*'+NL;
-  if(tipo==='envio') msg+='📦 Te avisamos cuando sale'+NL;
+  if(tipo==='envio') msg+='🛵 *Sin hora fija — te avisamos por acá apenas sale*'+NL;
   if(tipo==='envio'){
     msg+='📍 *Envío a domicilio*'+NL;
     msg+='   📌 Calle: '+g_calle+NL;
