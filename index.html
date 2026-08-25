@@ -765,9 +765,10 @@ const EMPANADAS = [
 
 
 const VINOS = [
-  {id:'vino_malbec', nombre:'Malbec', varietal:'Botella', precio:15000},
-  {id:'vino_dulce', nombre:'Dulce Natural', varietal:'Botella', precio:13000},
-  {id:'vino_torrontes', nombre:'Torrontés', varietal:'Botella', precio:13000},
+  {id:'vino_tinto_regional', nombre:'Vino Tinto Regional', varietal:'Botella', precio:12000},
+  {id:'vino_malbec', nombre:'Vino Malbec', varietal:'Botella', precio:15000},
+  {id:'vino_dulce', nombre:'Vino Blanco Dulce', varietal:'Botella', precio:13000},
+  {id:'vino_torrontes', nombre:'Vino Torrontés', varietal:'Botella', precio:13000},
 ];
 const BEBIDAS = [
   {id:'coca',nombre:'Coca-Cola',tamaño:'1,5 L',precio:4000},
@@ -982,7 +983,7 @@ const PRECIOS_DEFAULT = {
   yasgua:1000, salsa_locro:1000, tostadas:1000,
   tamales:20000, humita_chala:20000,
   coca:4000, sprite:4000, coca_zero:4000, agua:2500,
-  vino_malbec:15000, vino_dulce:13000, vino_torrontes:13000
+  vino_malbec:15000, vino_dulce:13000, vino_torrontes:13000, vino_tinto_regional:12000
 };
 let preciosFirebase = {};
 
@@ -1645,7 +1646,7 @@ function connectStock() {
     // Leer stock
     db.ref('stock').on('value',function(snap){
       var stock=snap.val()||{};
-      var ids=['carne_tuc','carne_salt','pollo','jamon_queso','verdura','queso_norteno','cebolla_queso','humita','locro','tostadas','tamales','humita_chala','past_batata','past_membrillo','past_batata_cuarto','past_membrillo_cuarto','yasgua','salsa_locro','coca','sprite','coca_zero','agua','vino_malbec','vino_dulce','vino_torrontes'];
+      var ids=['carne_tuc','carne_salt','pollo','jamon_queso','verdura','queso_norteno','cebolla_queso','humita','locro','tostadas','tamales','humita_chala','past_batata','past_membrillo','past_batata_cuarto','past_membrillo_cuarto','yasgua','salsa_locro','coca','sprite','coca_zero','agua','vino_malbec','vino_dulce','vino_torrontes','vino_tinto_regional'];
       // Apply immediately
       ids.forEach(function(id){ aplicarStockItem(id, stock[id]!==false); });
       // Also retry after 1s in case cards weren't built yet
