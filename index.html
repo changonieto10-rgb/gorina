@@ -121,14 +121,18 @@
     max-width: 680px; margin: 0 auto; text-align: center;
   }
   .bh-titulo {
-    color: var(--rojo-claro);
-    font-size: 11px; font-weight: 700;
+    color: var(--blanco);
+    font-size: 13px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
-    margin-bottom: 12px;
+    display: inline-block;
+    padding-bottom: 7px;
+    border-bottom: 2px solid var(--rojo-claro);
+    margin-bottom: 14px;
   }
+  .bh-reparto { margin-top: 20px; padding-top: 18px; border-top: 1px solid #333; }
   .horarios-row {
     display: flex; justify-content: center;
-    gap: 0; flex-wrap: wrap;
+    gap: 0; flex-wrap: wrap; row-gap: 14px;
   }
   .horario-item {
     padding: 0 20px;
@@ -136,6 +140,7 @@
     text-align: center;
   }
   .horario-item:last-child { border-right: none; }
+  @media (max-width: 520px) { .banner-horarios .horario-item { border-right: none; } }
   .h-dia { color: #FFFFFF; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
   .h-hora { color: var(--blanco); font-size: 22px; font-weight: 800; margin-top: 5px; letter-spacing: 0.3px; }
 
@@ -507,15 +512,21 @@
     <div class="horarios-row">
       <div class="horario-item">
         <div class="h-dia">Lun — Sáb</div>
-        <div class="h-hora">18:30 — 22:30</div>
+        <div class="h-hora">19:00 — 22:30</div>
       </div>
       <div class="horario-item">
         <div class="h-dia">Domingo</div>
-        <div class="h-hora">18:30 — 22:00</div>
+        <div class="h-hora">19:00 — 22:00</div>
       </div>
     </div>
-    <div style="margin-top:12px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.2);font-size:16px;font-weight:700;color:#FFFFFF;text-align:center;line-height:1.5;">
-      🛵 <strong>Repartimos de 19:00 a 22:00</strong>
+    <div class="bh-reparto">
+      <div class="bh-titulo">Reparto a domicilio</div>
+      <div class="horarios-row">
+        <div class="horario-item">
+          <div class="h-dia">Jue — Dom</div>
+          <div class="h-hora">19:00 — 22:00</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1383,15 +1394,13 @@ function enviar() {
   const conCuantoFormateado=conCuanto?'$'+parseInt(conCuanto).toLocaleString('es-AR'):'';
 
   var NL='\n';
-  var msg='🥟 *NUEVO PEDIDO*'+NL;
   const hoyAR = horaActualAR();
   const hoyStr = hoyAR.getFullYear()+'-'+String(hoyAR.getMonth()+1).padStart(2,'0')+'-'+String(hoyAR.getDate()).padStart(2,'0');
-  if(diaVal===hoyStr) msg+='🔴🔴 *PARA HOY* 🔴🔴'+NL;
-  msg+='———————————————'+NL;
+  const horaTxt = /^\d{1,2}([:.]\d{2})?$/.test(horarioVal) ? horarioVal+' hs' : horarioVal;
+  var msg = (diaVal===hoyStr) ? '🔴 *PARA HOY · '+horaTxt+'*' : '📅 *'+diaTexto.toUpperCase()+' · '+horaTxt+'*';
+  msg+=NL+'———————————————'+NL;
   msg+='👤 *'+nombre+'*'+NL;
   msg+='📞 '+telefono+NL;
-  msg+='📅 *'+diaTexto+'*'+NL;
-  msg+='🕐 *'+horarioVal+'*'+NL;
   if(tipo==='envio') msg+='⏱ *Vamos a hacer lo posible por respetar tu horario · te avisamos cuando sale*'+NL;
   if(tipo==='envio'){
     msg+='📍 *Envío a domicilio*'+NL;
