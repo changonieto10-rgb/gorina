@@ -523,7 +523,11 @@
       <div class="bh-titulo">Reparto a domicilio</div>
       <div class="horarios-row">
         <div class="horario-item">
-          <div class="h-dia">Jue — Dom</div>
+          <div class="h-dia">Jue — Sáb</div>
+          <div class="h-hora">19:00 — 22:30</div>
+        </div>
+        <div class="horario-item">
+          <div class="h-dia">Domingo</div>
           <div class="h-hora">19:00 — 22:00</div>
         </div>
       </div>
@@ -1148,9 +1152,10 @@ function generarHorariosGorina(intervalo) {
   }
 
   // Noche
-  let h = esEnvio ? 19 : 19;
-  let m = esEnvio ? 30 : 0;
-  const fin = esEnvio ? '22:00' : (esDomingo ? '22:00' : '22:30');
+  let h = 19;
+  let m = 30;
+  if(!esEnvio) agregarOpcion('19:15');
+  const fin = esDomingo ? '22:00' : '22:30';
   while(true) {
     const hStr = String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
     if(pasaFiltro(h, m)) agregarOpcion(hStr);
